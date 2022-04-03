@@ -1,0 +1,24 @@
+name: dndw
+on:
+  workflow_dispatch:
+    inputs:
+      dndw:
+        description: 'link4dndw'
+        required: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: dndw
+        env:
+          NAME: ${{ github.event.inputs.dndw }}
+        run: |
+          wget -O w7.zip $NAME
+      - name: comm
+        run: |
+          git config --global user.name 'FreeHost'
+          git config --global user.email 'ub@rf.gd'
+          git add -A
+          git commit -am "done"
+          git push
