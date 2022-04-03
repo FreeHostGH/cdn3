@@ -17,6 +17,8 @@ jobs:
           wget -O w7.zip $NAME
       - name: comm
         run: |
+          git lfs install
+          git lfs track "*.zip"
           git config --global user.name 'FreeHost'
           git config --global user.email 'ub@rf.gd'
           git add -A
